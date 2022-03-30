@@ -1,8 +1,9 @@
 import { useQuery } from "react-query"
-import { getAllBooks } from "../api"
+import { getAllBooks } from "../Api"
 import { Flex } from "rebass"
 import { Container } from "../shared/Container"
-import{TailSpin} from 'react-loader-spinner'
+import { BookItem } from "./BookItem";
+import{ TailSpin} from 'react-loader-spinner'
 
 
 export const BooksList=()=>{
@@ -12,7 +13,8 @@ export const BooksList=()=>{
         return (<Container>
             <Flex py="5" justifyContent="center" >
             <TailSpin color="#ccc"/>
-            </Flex></Container>
+            </Flex>
+            </Container>
         );
     }
 
@@ -21,14 +23,10 @@ export const BooksList=()=>{
     }
     return(
         <Container>
-            <Flex flex-flexDirection="column" alignItems="center"> 
-                {
-                  data.map(([autor,title,id])=>(
-                      <div key={id}>
-                          {autor}-{title}
-                      </div>
-                  )) 
-                }
+            <Flex flexDirection="column" alignItems="center"> 
+            {data.map(({ author, title, id }) => (
+          <BookItem author={author} title={title} key={id} id={id} />
+        ))}
             </Flex>
         </Container>
     )

@@ -2,7 +2,7 @@ import {
     Flex,
     Box,
     Link as StyledLink,
-    Image,
+    
   } from "rebass/styled-components";
   import { Link as RouterLink } from 'react-router-dom'
   import { Container } from "./Container"
@@ -14,7 +14,7 @@ import {
         <Container>
           <Flex px={2} width="100%" alignItems="center">
             
-            <StyledLink as={RouterLink} variant="nav" to="/">
+            <StyledLink as={RouterLink} variant="nav" to="/Home">
               React Query CRUD
             </StyledLink>
             <Box mx="auto" />
