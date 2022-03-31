@@ -6,22 +6,15 @@ export const   getAllBooks = async () => {
   };
 
   export const updateBook = async ({ id, ...data }) => {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_SERVER}/books/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
-  
-    if (!response.ok) {
-      throw new Error(response.json().message);
-    }
-  
-    return response.json();
+    const response = await axios.put(
+      `${process.env.REACT_APP_API_SERVER}/books/${id} `,data)
+    return response;
+  };
+
+  export const createBook = async (data) => {
+    const response = await axios.post(
+      `${process.env.REACT_APP_API_SERVER}/books/ `,data)
+    return response;
   };
 
 
@@ -34,9 +27,12 @@ export const getBook= async (id) => {
   
   
   export const removeBook = async (id) => {
-    const response = axios.delete(`${process.env.REACT_APP_API_SERVER}/books/${id}`);
+    const response =  await axios.delete(`${process.env.REACT_APP_API_SERVER}/books/${id}`);
   
    
   
     return true;
   };
+
+
+ 

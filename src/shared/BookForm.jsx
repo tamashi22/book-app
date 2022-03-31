@@ -18,7 +18,7 @@ export const BookForm = ({ defaultValues, onFormSubmit, isLoading }) => {
       </Box>
       <Box sx={{ marginBottom: 3 }}>
         <Label htmlFor="author">Author</Label>
-        <Input {...register('autor', { required: true })} id="autor" type="text" />
+        <Input {...register('author', { required: true })} id="autor" type="text" />
       </Box>
       <Button variant="primary" mr={2}>
         { isLoading ? <TailSpin color="#fff" height={10} /> : "Submit" }
